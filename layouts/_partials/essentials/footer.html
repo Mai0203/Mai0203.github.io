@@ -1,0 +1,17 @@
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <a class="footer-brand" href="{{ site.Home.RelPermalink }}">{{ site.Title }}</a>
+      <p>愿每一次记录，都让模糊的想法变得清晰一点。</p>
+    </div>
+    <ul>
+      <li><a href="{{ `blog/` | relURL }}">随笔</a></li>
+      <li><a href="{{ `about/` | relURL }}">关于</a></li>
+      <li><a href="{{ `index.xml` | relURL }}">RSS</a></li>
+    </ul>
+  </div>
+  <div class="container footer-bottom">
+    <p>{{ site.Params.copyright }}</p>
+    <a href="#top">回到顶部 ↑</a>
+  </div>
+</footer>

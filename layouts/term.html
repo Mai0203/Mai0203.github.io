@@ -1,0 +1,22 @@
+{{ define "main" }}
+  <section class="journal-hero">
+    <div class="container narrow-container">
+      <p class="eyebrow">TOPIC</p>
+      <h1>{{ .Title }}</h1>
+    </div>
+  </section>
+  <section class="journal-list">
+    <div class="container narrow-container">
+      <div class="post-stack">
+        {{ range .Pages }}
+          <article class="post-row archive-row">
+            <a class="post-hit-area" href="{{ .RelPermalink }}" aria-label="阅读《{{ .Title }}》"></a>
+            <div class="post-meta"><time datetime="{{ .Date.Format `2006-01-02` }}">{{ .Date.Format "2006.01.02" }}</time></div>
+            <div class="post-copy"><h2>{{ .Title }}</h2><p>{{ .Description | default .Summary | plainify }}</p></div>
+            <span class="post-arrow" aria-hidden="true">↗</span>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+{{ end }}

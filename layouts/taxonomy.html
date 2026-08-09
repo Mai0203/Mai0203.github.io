@@ -1,0 +1,15 @@
+{{ define "main" }}
+  <section class="journal-hero">
+    <div class="container narrow-container">
+      <p class="eyebrow">INDEX</p>
+      <h1>{{ .Title }}</h1>
+    </div>
+  </section>
+  <section class="journal-list">
+    <div class="container narrow-container taxonomy-list">
+      {{ range .Data.Terms.Alphabetical }}
+        <a href="{{ .Page.RelPermalink }}"><span>{{ .Page.Title }}</span><small>{{ .Count }} 篇</small></a>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

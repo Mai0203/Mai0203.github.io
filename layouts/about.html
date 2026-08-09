@@ -1,0 +1,12 @@
+{{ define "main" }}
+  <section class="about-page">
+    <div class="container article-container">
+      <p class="eyebrow">ABOUT</p>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="article-deck">{{ . }}</p>{{ end }}
+      <div class="content journal-content about-content">
+        {{ .Content }}
+      </div>
+    </div>
+  </section>
+{{ end }}

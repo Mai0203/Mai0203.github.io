@@ -1,0 +1,28 @@
+<header id="top" class="site-header">
+  <nav class="container site-navbar" aria-label="主导航">
+    <a class="site-brand" href="{{ site.Home.RelPermalink }}" aria-label="{{ site.Title }}首页">
+      <span class="brand-mark" aria-hidden="true">一</span>
+      <span>{{ site.Title }}</span>
+    </a>
+
+    <button id="nav-toggle" class="site-nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span>
+      <span class="sr-only">打开导航</span>
+    </button>
+
+    <div id="nav-menu" class="site-menu">
+      <ul>
+        <li><a class="{{ if .IsHome }}active{{ end }}" href="{{ site.Home.RelPermalink }}">首页</a></li>
+        <li><a class="{{ if eq .Section `blog` }}active{{ end }}" href="{{ `blog/` | relURL }}">随笔</a></li>
+        <li><a class="{{ if eq .Section `about` }}active{{ end }}" href="{{ `about/` | relURL }}">关于</a></li>
+      </ul>
+    </div>
+
+    <div class="site-tools">
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="切换深色模式">
+        <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.2A8 8 0 0 1 8.8 3.8 8.5 8.5 0 1 0 20.2 15.2Z"></path></svg>
+      </button>
+    </div>
+  </nav>
+</header>

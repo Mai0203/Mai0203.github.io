@@ -1,0 +1,39 @@
+{{ define "main" }}
+  <section class="journal-hero">
+    <div class="container narrow-container">
+      <p class="eyebrow">ARCHIVE</p>
+      <h1>{{ .Title }}</h1>
+      <p>{{ .Description }}</p>
+    </div>
+  </section>
+
+  <section class="journal-list">
+    <div class="container narrow-container">
+      {{ $paginator := .Paginate .RegularPages }}
+      <div class="journal-count">共 {{ len .RegularPages }} 篇文章</div>
+      <div class="post-stack">
+        {{ range $paginator.Pages }}
+          <article class="post-row archive-row">
+            <a class="post-hit-area" href="{{ .RelPermalink }}" aria-label="阅读《{{ .Title }}》"></a>
+            <div class="post-meta">
+              <time datetime="{{ .Date.Format `2006-01-02` }}">{{ .Date.Format "2006.01.02" }}</time>
+              {{ with index .Params.categories 0 }}<span>{{ . }}</span>{{ end }}
+            </div>
+            <div class="post-copy">
+              <h2>{{ .Title }}</h2>
+              <p>{{ .Description | default .Summary | plainify }}</p>
+            </div>
+            <span class="post-arrow" aria-hidden="true">↗</span>
+          </article>
+        {{ end }}
+      </div>
+      {{ if gt $paginator.TotalPages 1 }}
+        <nav class="simple-pagination" aria-label="分页">
+          {{ with $paginator.Prev }}<a href="{{ .URL }}">← 上一页</a>{{ end }}
+          <span>{{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</span>
+          {{ with $paginator.Next }}<a href="{{ .URL }}">下一页 →</a>{{ end }}
+        </nav>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

@@ -1,12 +1,15 @@
 {{ define "main" }}
   <section class="about-page">
-    <div class="container article-container">
-      <p class="eyebrow">ABOUT</p>
-      <h1>{{ .Title }}</h1>
-      {{ with .Description }}<p class="article-deck">{{ . }}</p>{{ end }}
-      <div class="content journal-content about-content">
-        {{ .Content }}
+    <div class="container about-shell">
+      <div class="about-layout">
+        <div class="content journal-content about-content">
+          {{ .Content }}
+        </div>
       </div>
+
+      <figure class="about-visual about-visual-ending">
+        <img src="{{ `images/about.png` | relURL }}" alt="从探索、成长到使用 AI 创作的手绘插画" width="988" height="516" loading="lazy" />
+      </figure>
     </div>
   </section>
 {{ end }}

@@ -1,12 +1,13 @@
 <!doctype html>
 <html lang="zh-CN">
   <head>
+    {{ $pageTitle := .Params.meta_title | default .Title | default site.Title }}
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="{{ .Description | default site.Params.description }}" />
     <meta name="author" content="{{ site.Params.author }}" />
     <meta name="theme-color" content="#fbf8f1" />
-    <title>{{ if .IsHome }}{{ site.Title }} · 个人随笔{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+    <title>{{ if .IsHome }}{{ site.Title }} · 个人随笔{{ else }}{{ $pageTitle }} · {{ site.Title }}{{ end }}</title>
     <link rel="canonical" href="{{ .Permalink }}" />
     <link rel="icon" href="{{ `favicon.svg` | relURL }}" type="image/svg+xml" />
     {{ with .OutputFormats.Get "RSS" }}<link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .RelPermalink }}" />{{ end }}
@@ -20,12 +21,11 @@
         document.documentElement.classList.toggle("dark", dark);
       } catch (_) {}
     </script>
-    <link rel="stylesheet" href="{{ `css/style.css` | relURL }}" />
+    <link rel="stylesheet" href="{{ `css/style.css` | relURL }}?v={{ now.Unix }}" />
   </head>
   <body>
     {{ partial "essentials/header.html" . }}
     <main>{{ block "main" . }}{{ end }}</main>
-    {{ partial "essentials/footer.html" . }}
     <script src="{{ `js/main.js` | relURL }}"></script>
   </body>
 </html>

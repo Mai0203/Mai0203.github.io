@@ -1,5 +1,5 @@
 baseURL = "/"
-title = "一隅"
+title = "懋屿"
 languageCode = "zh-cn"
 defaultContentLanguage = "zh"
 hasCJKLanguage = true
@@ -31,4 +31,4 @@ lineNumbersInTable = false
 [params]
 description = "一个记录思考、学习与日常生活的个人小站。"
 author = "站点作者"
-copyright = "© 2026 一隅 · 写下值得被记住的事"
+copyright = "© 2026 懋屿 · 写下值得被记住的事"

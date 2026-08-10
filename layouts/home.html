@@ -1,29 +1,4 @@
 {{ define "main" }}
-  {{ with .Params.hero }}
-    <section class="home-hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">{{ .eyebrow }}</p>
-          <h1>{{ replace .title "\n" "<br>" | safeHTML }}</h1>
-          <p class="hero-intro">{{ .content }}</p>
-          <div class="hero-actions">
-            <a class="text-link" href="{{ `blog/` | relLangURL }}">
-              浏览全部随笔
-              <span aria-hidden="true">↗</span>
-            </a>
-            <a class="quiet-link" href="{{ `about/` | relLangURL }}">关于这里</a>
-          </div>
-        </div>
-        <aside class="hero-note" aria-label="近况">
-          <span class="note-symbol" aria-hidden="true">✦</span>
-          <p class="note-label">NOW</p>
-          <p>{{ $.Params.note }}</p>
-          <span class="note-date">{{ now.Format "2006 · 01" }}</span>
-        </aside>
-      </div>
-    </section>
-  {{ end }}
-
   {{ $posts := where site.RegularPages "Section" "blog" }}
   <section class="latest-section">
     <div class="container">
@@ -60,12 +35,4 @@
     </div>
   </section>
 
-  <section class="closing-note">
-    <div class="container">
-      <blockquote>
-        <span aria-hidden="true">“</span>
-        写作不是为了得出答案，<br />而是为了更准确地提出问题。
-      </blockquote>
-    </div>
-  </section>
 {{ end }}
